@@ -183,13 +183,14 @@ public class ValoThemeUI extends UI {
         menuItems.put("wizard", "Wizard test");
         menuItems.put("textfields", "Text Fields");
         menuItems.put("datefields", "Date Fields");
-        menuItems.put("uploader", "Upload Files");
-        menuItems.put("popup", "Pop Up Windows");
 
         if (getPage().getBrowserWindowWidth() >= 768) {
             menuItems.put("calendar", "Calendar");
         }
         menuItems.put("forms", "Forms");
+
+        menuItems.put("uploader", "Upload Files");
+        menuItems.put("popup", "Pop Up Windows");
 
         final HorizontalLayout top = new HorizontalLayout();
         top.setWidth("100%");
@@ -216,18 +217,18 @@ public class ValoThemeUI extends UI {
         top.addComponent(title);
         top.setExpandRatio(title, 1);
 
-        final MenuBar settings = new MenuBar();
-        settings.addStyleName("user-menu");
-        final StringGenerator sg = new StringGenerator();
-        final MenuItem settingsItem = settings.addItem(sg.nextString(true)
-                        + " " + sg.nextString(true) + sg.nextString(false),
-                new ClassResource("profile-pic-300px.jpg"),
-                null);
-        settingsItem.addItem("Edit Profile", null);
-        settingsItem.addItem("Preferences", null);
-        settingsItem.addSeparator();
-        settingsItem.addItem("Sign Out", null);
-        menu.addComponent(settings);
+//        final MenuBar settings = new MenuBar();
+//        settings.addStyleName("user-menu");
+//        final StringGenerator sg = new StringGenerator();
+//        final MenuItem settingsItem = settings.addItem(sg.nextString(true)
+//                        + " " + sg.nextString(true) + sg.nextString(false),
+//                new ClassResource("profile-pic-300px.jpg"),
+//                null);
+//        settingsItem.addItem("Edit Profile", null);
+//        settingsItem.addItem("Preferences", null);
+//        settingsItem.addSeparator();
+//        settingsItem.addItem("Sign Out", null);
+//        menu.addComponent(settings);
 
         menuItemsLayout.setPrimaryStyleName("valo-menuitems");
         menu.addComponent(menuItemsLayout);
@@ -236,18 +237,7 @@ public class ValoThemeUI extends UI {
         int count = -1;
         for (final Entry<String, String> item : menuItems.entrySet()) {
             if (item.getKey().equals("labels")) {
-                label = new Label("Components", ContentMode.HTML);
-                label.setPrimaryStyleName("valo-menu-subtitle");
-                label.addStyleName("h4");
-                label.setSizeUndefined();
-                menuItemsLayout.addComponent(label);
-            }
-            if (item.getKey().equals("panels")) {
-                label.setValue(label.getValue()
-                        + " <span class=\"valo-menu-badge\">" + count
-                        + "</span>");
-                count = 0;
-                label = new Label("Containers", ContentMode.HTML);
+                label = new Label("Ventanas", ContentMode.HTML);
                 label.setPrimaryStyleName("valo-menu-subtitle");
                 label.addStyleName("h4");
                 label.setSizeUndefined();
@@ -258,7 +248,7 @@ public class ValoThemeUI extends UI {
                         + " <span class=\"valo-menu-badge\">" + count
                         + "</span>");
                 count = 0;
-                label = new Label("Other", ContentMode.HTML);
+                label = new Label("Componentes", ContentMode.HTML);
                 label.setPrimaryStyleName("valo-menu-subtitle");
                 label.addStyleName("h4");
                 label.setSizeUndefined();
