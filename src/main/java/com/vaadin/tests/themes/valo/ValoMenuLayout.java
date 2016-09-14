@@ -29,16 +29,12 @@ import com.vaadin.ui.themes.ValoTheme;
 public class ValoMenuLayout extends HorizontalLayout {
 
     CssLayout contentArea = new CssLayout();
-
     CssLayout menuArea = new CssLayout();
 
     public ValoMenuLayout() {
         setSizeFull();
 
         menuArea.setPrimaryStyleName(ValoTheme.MENU_ROOT);
-
-        contentArea.setPrimaryStyleName("valo-content");
-        contentArea.addStyleName("v-scrollable");
         contentArea.setSizeFull();
 
         addComponents(menuArea, contentArea);

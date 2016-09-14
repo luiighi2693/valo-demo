@@ -24,12 +24,12 @@ public class TestDetail extends DetailUI {
 
     public TestDetail() {
         super();
-        setTitle("Testing Detail/New");
+        setTitle("Test Detalle/Nuevo");
     }
 
     @Override
     public void buildHeader(boolean showHeader) {
-        super.buildHeader(false);
+        super.buildHeader(true);
     }
 
     @Override
@@ -37,7 +37,8 @@ public class TestDetail extends DetailUI {
         super.buildForm();
         form.setStyleName(ValoTheme.FORMLAYOUT_LIGHT, false);
 
-        code = new TextField("Code");
+        code = new TextField("Código");
+        code.setInputPrompt("código");
         form.addComponent(code);
 
         Collection<String> theJavas = Arrays.asList("Jav",
@@ -47,7 +48,7 @@ public class TestDetail extends DetailUI {
 
         AutocompleteSuggestionProvider suggestionProvider = new CollectionSuggestionProvider(theJavas, MatchMode.CONTAINS, true, Locale.US);
 
-        AutocompleteTextField field = new AutocompleteTextField("The autocomplete");
+        AutocompleteTextField field = new AutocompleteTextField("Campo con autocompletado");
         field.setInputPrompt("text here");
         field.setSuggestionProvider(suggestionProvider);
         form.addComponent(field);

@@ -1,21 +1,11 @@
 package com.vaadin.tests.themes.valo.testwizard;
 
-import com.vaadin.ui.FormLayout;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import eu.maxschuster.vaadin.autocompletetextfield.AutocompleteSuggestionProvider;
-import eu.maxschuster.vaadin.autocompletetextfield.AutocompleteTextField;
-import eu.maxschuster.vaadin.autocompletetextfield.provider.CollectionSuggestionProvider;
-import eu.maxschuster.vaadin.autocompletetextfield.provider.MatchMode;
 import ve.com.pt.base.new_views.StepWizardUI;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Locale;
-
 public class IntroStep extends StepWizardUI {
-
-    private AutocompleteTextField field;
-    Collection<String> theJavas = Arrays.asList("j", "JavaScript", "Join Java", "JavaFX Script");
 
     @Override
     public String getCaption() {
@@ -23,15 +13,37 @@ public class IntroStep extends StepWizardUI {
     }
 
     @Override
+    public Component getContent() {
+
+        VerticalLayout mainLayout = new VerticalLayout();
+        mainLayout.setMargin(true);
+
+        Label label = new Label(
+                "<pre> // instantiate the Wizard\n" +
+                        "Wizard wizard = new Wizard();\n" +
+                        "\n" +
+                        "// add some steps that implement the WizardStep interface\n" +
+                        "wizard.addStep(new FirstStep());\n" +
+                        "wizard.addStep(new SecondStep());\n" +
+                        "wizard.addStep(new ThirdStep());\n" +
+                        "wizard.addStep(new FourthStep());\n" +
+                        "\n" +
+                        "// add the wizard to a layout\n" +
+                        "mainLayout.addComponent(wizard); </pre>",
+                ContentMode.HTML);
+
+        Panel panel = new Panel();
+        panel.setContent(label);
+
+        mainLayout.addComponents(panel);
+
+        return mainLayout;
+    }
+
+    @Override
     public FormLayout buildForm() {
         super.buildForm();
         form.setStyleName(ValoTheme.FORMLAYOUT_LIGHT,false);
-
-        field = new AutocompleteTextField("The autocomplete");
-        AutocompleteSuggestionProvider suggestionProvider = new CollectionSuggestionProvider(theJavas, MatchMode.CONTAINS, true, Locale.ENGLISH);
-        field.setSuggestionProvider(suggestionProvider);
-        form.addComponent(field);
-
         return form;
     }
 
