@@ -14,7 +14,7 @@ public class TestFilter extends FilterUI {
 
     public TestFilter() {
         super();
-        setTitle("Test filter");
+        setTitle("Filtros");
     }
 
     @Override
@@ -27,12 +27,12 @@ public class TestFilter extends FilterUI {
         super.buildForm();
         form.setStyleName(ValoTheme.FORMLAYOUT_LIGHT, false);
 
-        code = new TextField("Code");
-        code.setInputPrompt("enter code");
+        code = new TextField("Código");
+        code.setInputPrompt("código");
         form.addComponent(code);
 
-        name = new TextField("Name");
-        name.setInputPrompt("enter name");
+        name = new TextField("Nombre");
+        name.setInputPrompt("nombre");
         form.addComponent(name);
     }
 

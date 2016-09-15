@@ -24,7 +24,7 @@ public class TestDetail extends DetailUI {
 
     public TestDetail() {
         super();
-        setTitle("Test Detalle/Nuevo");
+        setTitle("Detalle/Nuevo");
     }
 
     @Override
@@ -49,7 +49,7 @@ public class TestDetail extends DetailUI {
         AutocompleteSuggestionProvider suggestionProvider = new CollectionSuggestionProvider(theJavas, MatchMode.CONTAINS, true, Locale.US);
 
         AutocompleteTextField field = new AutocompleteTextField("Campo con autocompletado");
-        field.setInputPrompt("text here");
+        field.setInputPrompt("parámetro");
         field.setSuggestionProvider(suggestionProvider);
         form.addComponent(field);
     }
@@ -57,7 +57,7 @@ public class TestDetail extends DetailUI {
     @Override
     public void buildHeaderGrid(boolean showHeaderGrid) {
         super.buildHeaderGrid(true);
-        headerGrid.addComponents(new Button(FontAwesome.SEARCH), new Button(FontAwesome.PLUS));
+        headerGrid.addComponents(new Button(FontAwesome.FILTER), new Button(FontAwesome.PLUS));
     }
 
     @Override

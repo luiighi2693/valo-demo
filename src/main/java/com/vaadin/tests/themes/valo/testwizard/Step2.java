@@ -9,7 +9,7 @@ public class Step2 extends StepWizardUI {
 
     @Override
     public String getCaption() {
-        return "Paso 2: Switch";
+        return "Paso 2";
     }
 
     @Override

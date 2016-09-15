@@ -19,16 +19,13 @@ public class IntroStep extends StepWizardUI {
         mainLayout.setMargin(true);
 
         Label label = new Label(
-                "<pre> // instantiate the Wizard\n" +
+                "<pre> " +
                         "Wizard wizard = new Wizard();\n" +
                         "\n" +
-                        "// add some steps that implement the WizardStep interface\n" +
                         "wizard.addStep(new FirstStep());\n" +
                         "wizard.addStep(new SecondStep());\n" +
                         "wizard.addStep(new ThirdStep());\n" +
-                        "wizard.addStep(new FourthStep());\n" +
                         "\n" +
-                        "// add the wizard to a layout\n" +
                         "mainLayout.addComponent(wizard); </pre>",
                 ContentMode.HTML);
 

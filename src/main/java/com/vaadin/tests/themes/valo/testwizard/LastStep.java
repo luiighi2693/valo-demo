@@ -7,7 +7,7 @@ public class LastStep extends StepWizardUI {
 
     @Override
     public String getCaption() {
-        return "Otro";
+        return "Paso 3";
     }
 
     @Override

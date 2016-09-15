@@ -13,7 +13,7 @@ public class TestList extends ListUI {
 
     public TestList() {
         super();
-        setTitle("ListView");
+        setTitle("Listado");
     }
 
     @Override
