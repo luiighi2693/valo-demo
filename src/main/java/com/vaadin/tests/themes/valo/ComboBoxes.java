@@ -18,7 +18,6 @@ package com.vaadin.tests.themes.valo;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.ThemeResource;
-import com.vaadin.server.UserError;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CssLayout;
@@ -26,6 +25,10 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
+import org.vaadin.addons.comboboxmultiselect.ComboBoxMultiselect;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComboBoxes extends VerticalLayout implements View {
     public ComboBoxes() {
@@ -68,54 +71,6 @@ public class ComboBoxes extends VerticalLayout implements View {
         Button today = new Button("Do It");
         group.addComponent(today);
 
-        combo = new ComboBox("Explicit size");
-        combo.setInputPrompt("You can type here");
-        combo.addItem("Option One");
-        combo.addItem("Option Two");
-        combo.addItem("Option Three");
-        combo.setWidth("260px");
-        combo.setHeight("60px");
-        row.addComponent(combo);
-
-        combo = new ComboBox("No text input allowed");
-        combo.setInputPrompt("You can click here");
-        combo.addItem("Option One");
-        combo.addItem("Option Two");
-        combo.addItem("Option Three");
-        combo.setTextInputAllowed(false);
-        combo.setNullSelectionAllowed(false);
-        combo.select("Option One");
-        row.addComponent(combo);
-
-        combo = new ComboBox("Error");
-        combo.setInputPrompt("You can type here");
-        combo.addItem("Option One");
-        combo.addItem("Option Two");
-        combo.addItem("Option Three");
-        combo.setNullSelectionAllowed(false);
-        combo.select("Option One");
-        combo.setComponentError(new UserError("Fix it, now!"));
-        row.addComponent(combo);
-
-        combo = new ComboBox("Error, borderless");
-        combo.setInputPrompt("You can type here");
-        combo.addItem("Option One");
-        combo.addItem("Option Two");
-        combo.addItem("Option Three");
-        combo.setNullSelectionAllowed(false);
-        combo.select("Option One");
-        combo.setComponentError(new UserError("Fix it, now!"));
-        combo.addStyleName(ValoTheme.COMBOBOX_BORDERLESS);
-        row.addComponent(combo);
-
-        combo = new ComboBox("Disabled");
-        combo.setInputPrompt("You can't type here");
-        combo.addItem("Option One");
-        combo.addItem("Option Two");
-        combo.addItem("Option Three");
-        combo.setEnabled(false);
-        row.addComponent(combo);
-
         combo = new ComboBox("Small");
         combo.setInputPrompt("You can type here");
         combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
@@ -132,34 +87,23 @@ public class ComboBoxes extends VerticalLayout implements View {
         combo.addStyleName(ValoTheme.COMBOBOX_LARGE);
         row.addComponent(combo);
 
-        combo = new ComboBox("Borderless");
-        combo.setInputPrompt("You can type here");
-        combo.addItem("Option One");
-        combo.addItem("Option Two");
-        combo.addItem("Option Three");
-        combo.addStyleName(ValoTheme.COMBOBOX_BORDERLESS);
-        row.addComponent(combo);
+/*        List<Bean> list = new ArrayList<Bean>();
+        Bean vaadin = new Bean(2L, "Vaadin”);
+                list.add(new Bean(1L, "Java"));
+        list.add(vaadin);
+        list.add(new Bean(4L, "Addon"));*/
 
-        combo = new ComboBox("Tiny");
-        combo.setInputPrompt("You can type here");
-        combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
-        combo.setItemCaptionPropertyId(ValoThemeUI.CAPTION_PROPERTY);
-        combo.setItemIconPropertyId(ValoThemeUI.ICON_PROPERTY);
-        combo.addStyleName(ValoTheme.COMBOBOX_TINY);
-        row.addComponent(combo);
+// Initialize the ComboBoxMultiselect
+        final ComboBoxMultiselect comboBoxMultiselect = new ComboBoxMultiselect();
+        comboBoxMultiselect.setInputPrompt("Type here");
+        comboBoxMultiselect.setCaption("ComboBoxMultiselect");
+//        comboBoxMultiselect.addItems(list);
+//        comboBoxMultiselect.select(vaadin);
 
-        combo = new ComboBox("Huge");
-        combo.setInputPrompt("You can type here");
-        combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
-        combo.setItemCaptionPropertyId(ValoThemeUI.CAPTION_PROPERTY);
-        combo.setItemIconPropertyId(ValoThemeUI.ICON_PROPERTY);
-        combo.addStyleName(ValoTheme.COMBOBOX_HUGE);
-        row.addComponent(combo);
     }
 
     @Override
     public void enter(ViewChangeEvent event) {
-        // TODO Auto-generated method stub
 
     }
 

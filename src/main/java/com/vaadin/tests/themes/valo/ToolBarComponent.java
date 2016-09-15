@@ -3,10 +3,8 @@ package com.vaadin.tests.themes.valo;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.MenuBar;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -17,22 +15,48 @@ public class ToolBarComponent extends VerticalLayout implements View {
     private VerticalLayout mainLayout;
 
     public ToolBarComponent() {
-        Label h1 = new Label("Menu Bars");
+        Label h1 = new Label("Tool Bar");
         h1.addStyleName(ValoTheme.LABEL_H1);
 
         mainLayout = new VerticalLayout();
-        mainLayout.setMargin(true);
+        setMargin(true);
         mainLayout.setSpacing(true);
 
         mainLayout.addComponent(h1);
 
         MenuBar menuBar = getMenuBar();
-        menuBar.setCaption("Normal style");
         addComponent(menuBar);
-
         mainLayout.addComponents(menuBar);
 
-        addComponent(mainLayout);
+        Label label = new Label(
+                "<pre>      MenuBar menubar = new MenuBar();\n" +
+                        "      menubar.setWidth(\"100%\");\n" +
+                        "      MenuBar.MenuItem file = menubar.addItem(\"File\", null);\n" +
+                        "      MenuBar.MenuItem newItem = file.addItem(\"New\", null);\n" +
+                        "      file.addItem(\"Open file...\", click);\n" +
+                        "      file.addSeparator();\n" +
+                        "\n" +
+                        "      newItem.addItem(\"File\", click);\n" +
+                        "      newItem.addItem(\"Folder\", click);\n" +
+                        "      newItem.addItem(\"Project...\", click);\n" +
+                        "\n" +
+                        "      file.addItem(\"Close\", click);\n" +
+                        "      file.addItem(\"Close All\", click);\n" +
+                        "      file.addSeparator();\n" +
+                        "\n" +
+                        "      file.addItem(\"Save\", click);\n" +
+                        "      file.addItem(\"Save As...\", click);\n" +
+                        "      file.addItem(\"Save All\", click); </pre>",
+                ContentMode.HTML);
+
+        VerticalLayout verticalLayout = new VerticalLayout();
+        verticalLayout.addComponent(label);
+        verticalLayout.setMargin(true);
+
+        Panel panel = new Panel();
+        panel.setContent(verticalLayout);
+
+        addComponents(mainLayout,panel);
 
     }
 
@@ -41,8 +65,8 @@ public class ToolBarComponent extends VerticalLayout implements View {
 
         MenuBar menubar = new MenuBar();
         menubar.setWidth("100%");
-        final MenuBar.MenuItem file = menubar.addItem("File", null);
-        final MenuBar.MenuItem newItem = file.addItem("New", null);
+        MenuBar.MenuItem file = menubar.addItem("File", null);
+        MenuBar.MenuItem newItem = file.addItem("New", null);
         file.addItem("Open file...", click);
         file.addSeparator();
 
@@ -115,40 +139,6 @@ public class ToolBarComponent extends VerticalLayout implements View {
         return menubar;
     }
 
-    static MenuBar getToolBar() {
-        MenuBar menubar = new MenuBar();
-        menubar.setWidth("100%");
-
-        MenuBar.MenuItem fav = menubar.addItem("", null);
-        fav.setIcon(FontAwesome.ALIGN_LEFT);
-        fav.setStyleName("icon-only");
-        fav.setCheckable(true);
-
-        fav = menubar.addItem("", null);
-        fav.setIcon(FontAwesome.ALIGN_CENTER);
-        fav.setStyleName("icon-only");
-        fav.setCheckable(true);
-
-        fav = menubar.addItem("", null);
-        fav.setIcon(FontAwesome.ALIGN_RIGHT);
-        fav.setStyleName("icon-only");
-        fav.setCheckable(true);
-
-        MenuBar.MenuItem clip = menubar.addItem("", null);
-        clip.setIcon(FontAwesome.PAPERCLIP);
-        clip.setStyleName("icon-only");
-
-        MenuBar.MenuItem undo = menubar.addItem("", null);
-        undo.setIcon(FontAwesome.UNDO);
-        undo.setStyleName("icon-only");
-
-        MenuBar.MenuItem redo = menubar.addItem("", null);
-        redo.setIcon(FontAwesome.REPEAT);
-        redo.setEnabled(false);
-        redo.setStyleName("icon-only");
-
-        return menubar;
-    }
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {

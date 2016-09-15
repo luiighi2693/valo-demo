@@ -24,6 +24,11 @@ public class WizardTest extends WizardUI implements WizardProgressListener {
     }
 
     @Override
+    public void buildHeader(boolean showHeader) {
+        super.buildHeader(false);
+    }
+
+    @Override
     public void setWizardCaption(String caption) {
         super.setWizardCaption("TestWizard");
     }

@@ -111,6 +111,7 @@ public class ValoThemeUI extends UI {
         navigator.addView("forms", AutocompleteField.class);
         navigator.addView("calendar", ToolBarComponent.class);
         navigator.addView("grouptext", GroupTextFields.class);
+        navigator.addView("popbuttons", PopUpButtons.class);
 
         final String f = Page.getCurrent().getUriFragment();
         if (f == null || f.equals("")) {
@@ -163,16 +164,15 @@ public class ValoThemeUI extends UI {
         menuItems.put("tabsheet", "TabSheet");
         menuItems.put("wizard", "Wizard");
         menuItems.put("textfields", "Mantenimiento");
-//        menuItems.put("datefields", "Date Fields");
 
         if (getPage().getBrowserWindowWidth() >= 768) {
             menuItems.put("calendar", "ToolBar");
         }
         menuItems.put("forms", "TextField AutoComplete");
-//        menuItems.put("autocomplete","TextField Autocomplete");
         menuItems.put("uploader", "Upload Files");
         menuItems.put("popup", "Pop Up Windows");
         menuItems.put("grouptext", "Group TextFields");
+        menuItems.put("popbuttons", "PopUp Buttons");
 
         final HorizontalLayout top = new HorizontalLayout();
         top.setWidth("100%");
@@ -226,10 +226,7 @@ public class ValoThemeUI extends UI {
             final Button b = new Button(item.getValue(), (ClickListener) event -> {
                 navigator.navigateTo(item.getKey());
             });
-/*            if (count == 2) {
-                b.setCaption(b.getCaption()
-                        + " <span class=\"valo-menu-badge\">123</span>");
-            }*/
+
             b.setHtmlContentAllowed(true);
             b.setPrimaryStyleName("valo-menu-item");
             b.setIcon(testIcon.get());
