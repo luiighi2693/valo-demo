@@ -26,7 +26,6 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.*;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.tests.themes.valo.query.QueryView;
 import com.vaadin.tests.themes.valo.tabsheet.TestTabSheet;
 import com.vaadin.tests.themes.valo.test.TestView;
 import com.vaadin.tests.themes.valo.testmaintenance.TestMaintenance;
@@ -103,7 +102,6 @@ public class ValoThemeUI extends UI {
 
         navigator = new Navigator(this, viewDisplay);
 
-//        navigator.addView("common", TestView.class);
         navigator.addView("common", TestView.class);
         navigator.addView("tabsheet", TestTabSheet.class);
         navigator.addView("wizard", WizardTest.class);
@@ -111,7 +109,8 @@ public class ValoThemeUI extends UI {
         navigator.addView("uploader", Uploader.class);
         navigator.addView("popup", ConfirmDialogComponent.class);
         navigator.addView("forms", AutocompleteField.class);
-        navigator.addView("calendar", ComboBoxes.class);
+        navigator.addView("calendar", ToolBarComponent.class);
+        navigator.addView("grouptext", GroupTextFields.class);
 
         final String f = Page.getCurrent().getUriFragment();
         if (f == null || f.equals("")) {
@@ -154,13 +153,6 @@ public class ValoThemeUI extends UI {
 
     }
 
-/*    private boolean browserCantRenderFontsConsistently() {
-        return getPage().getWebBrowser().getBrowserApplication()
-                .contains("PhantomJS")
-                || (getPage().getWebBrowser().isIE() && getPage()
-                .getWebBrowser().getBrowserMajorVersion() <= 9);
-    }*/
-
     static boolean isTestMode() {
         return ((ValoThemeUI) getCurrent()).testMode;
     }
@@ -174,12 +166,13 @@ public class ValoThemeUI extends UI {
 //        menuItems.put("datefields", "Date Fields");
 
         if (getPage().getBrowserWindowWidth() >= 768) {
-            menuItems.put("calendar", "Otro componente");
+            menuItems.put("calendar", "ToolBar");
         }
-        menuItems.put("forms", "TextField Autocomplete");
+        menuItems.put("forms", "TextField AutoComplete");
 //        menuItems.put("autocomplete","TextField Autocomplete");
         menuItems.put("uploader", "Upload Files");
         menuItems.put("popup", "Pop Up Windows");
+        menuItems.put("grouptext", "Group TextFields");
 
         final HorizontalLayout top = new HorizontalLayout();
         top.setWidth("100%");
@@ -205,19 +198,6 @@ public class ValoThemeUI extends UI {
         title.setSizeUndefined();
         top.addComponent(title);
         top.setExpandRatio(title, 1);
-
-//        final MenuBar settings = new MenuBar();
-//        settings.addStyleName("user-menu");
-//        final StringGenerator sg = new StringGenerator();
-//        final MenuItem settingsItem = settings.addItem(sg.nextString(true)
-//                        + " " + sg.nextString(true) + sg.nextString(false),
-//                new ClassResource("profile-pic-300px.jpg"),
-//                null);
-//        settingsItem.addItem("Edit Profile", null);
-//        settingsItem.addItem("Preferences", null);
-//        settingsItem.addSeparator();
-//        settingsItem.addItem("Sign Out", null);
-//        menu.addComponent(settings);
 
         menuItemsLayout.setPrimaryStyleName("valo-menuitems");
         menu.addComponent(menuItemsLayout);

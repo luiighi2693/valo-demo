@@ -69,7 +69,7 @@ public class AutocompleteField extends VerticalLayout implements View {
         verticalLayout.addComponent(label);
         verticalLayout.setMargin(true);
 
-        panel = new Panel(new Label("<code>Implementación</code>",ContentMode.HTML));
+        panel = new Panel();
         panel.setContent(verticalLayout);
 
         mainLayout.addComponents(field, new VerticalLayout(), panel);

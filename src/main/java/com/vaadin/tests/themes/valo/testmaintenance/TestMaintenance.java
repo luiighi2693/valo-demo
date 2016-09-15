@@ -41,12 +41,12 @@ public class TestMaintenance extends BaseMaintenance {
         super.buildForm();
         form.setSpacing(true);
         form.setMargin(true);
-        code = new TextField("Code");
-        code.setInputPrompt("code here");
+        code = new TextField("Código");
+        code.setInputPrompt("código");
         form.addComponent(code);
         Collection<String> theJavas = Arrays.asList("Jav", "JavaScript", "Join Java", "JavaFX Script");
-        field = new AutocompleteTextField("Name");
-        field.setInputPrompt("text here");
+        field = new AutocompleteTextField("Nombre");
+        field.setInputPrompt("nombre");
         suggestionProvider = new CollectionSuggestionProvider(theJavas, MatchMode.CONTAINS, true, Locale.US);
         field.setSuggestionProvider(suggestionProvider);
         form.addComponent(field);

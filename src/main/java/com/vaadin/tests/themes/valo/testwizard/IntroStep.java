@@ -38,13 +38,6 @@ public class IntroStep extends StepWizardUI {
     }
 
     @Override
-    public FormLayout buildForm() {
-        super.buildForm();
-        form.setStyleName(ValoTheme.FORMLAYOUT_LIGHT,false);
-        return form;
-    }
-
-    @Override
     public boolean onAdvance() {
         return super.onAdvance();
     }

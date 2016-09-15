@@ -1,8 +1,10 @@
 package com.vaadin.tests.themes.valo.testwizard;
 
-import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.themes.ValoTheme;
-import org.vaadin.teemu.switchui.Switch;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.VerticalLayout;
 import ve.com.pt.base.new_views.StepWizardUI;
 
 public class Step2 extends StepWizardUI {
@@ -13,18 +15,40 @@ public class Step2 extends StepWizardUI {
     }
 
     @Override
-    public FormLayout buildForm() {
-        super.buildForm();
+    public Component getContent() {
 
-        form.setStyleName(ValoTheme.FORMLAYOUT_LIGHT, false);
+        VerticalLayout mainLayout = new VerticalLayout();
+        mainLayout.setMargin(true);
 
-        Switch switch1 = new Switch(null, false);
-        form.addComponent(switch1);
+        Label label = new Label(
+                "<pre> Se construye el wizard step implementando la interfaz <strong>WizardStep</strong> y que" +
+                        "contiene los siguientes métodos:\n\n" +
+                        "   public String getCaption() {\n" +
+                        "        return \"Initialize the Wizard\";\n" +
+                        "    }\n" +
+                        "\n" +
+                        "    public Component getContent() {\n" +
+                        "        VerticalLayout content = new VerticalLayout();\n" +
+                        "        content.setMargin(true);\n" +
+                        "\n" +
+                        "        return content;\n" +
+                        "    }\n " +
+                        "" +
+                        "public boolean onAdvance() {\n" +
+                        "        return true;\n" +
+                        "    }\n" +
+                        "\n" +
+                        "    public boolean onBack() {\n" +
+                        "        return true;\n" +
+                        "    }</pre>",
+                ContentMode.HTML);
 
-        Switch switch2 = new Switch(null, true);
-        form.addComponent(switch2);
+        Panel panel = new Panel();
+        panel.setContent(label);
 
-        return form;
+        mainLayout.addComponents(panel);
+
+        return mainLayout;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class WizardTest extends WizardUI implements WizardProgressListener {
     @Override
     public void endWizard(String message) {
         super.endWizard(message);
-        Button startOverButton = new Button("Ejecutar wizard", (ClickListener) event -> {
+        Button startOverButton = new Button("Regresar", (ClickListener) event -> {
             VaadinSession.getCurrent().close();
             Page.getCurrent().setLocation("");
         });
