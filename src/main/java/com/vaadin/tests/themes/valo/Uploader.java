@@ -2,10 +2,9 @@ package com.vaadin.tests.themes.valo;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Upload;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,15 +13,50 @@ import java.io.OutputStream;
 public class Uploader extends VerticalLayout implements View, Upload.Receiver {
 
     public Uploader(){
-        addComponent(new HorizontalLayout());
+
+        Label h1 = new Label("Upload Files");
+        h1.addStyleName(ValoTheme.LABEL_H1);
+
+        VerticalLayout mainLayout = new VerticalLayout();
+        mainLayout.setMargin(true);
+        mainLayout.setSpacing(true);
+
+        mainLayout.addComponent(h1);
 
         Upload upload = new Upload("Componente para subir Archivos", this);
-        addComponent(upload);
+        mainLayout.addComponent(upload);
 
-        addComponent(new HorizontalLayout());
+        Label label = new Label(
+                "<pre>Upload upload = new Upload(\"Componente para subir Archivos\", this);\n\n" +
+                        " @Override\n" +
+                        "    public OutputStream receiveUpload(String s, String s1) {\n" +
+                        "        FileOutputStream output = null;\n" +
+                        "\n" +
+                        "        try{\n" +
+                        "            output = new FileOutputStream(\"C:\\\\Users\\\\lrodriguez\\\\Desktop\\\\\"+s);\n" +
+                        "        }catch (FileNotFoundException e){\n" +
+                        "            e.printStackTrace();\n" +
+                        "        }\n" +
+                        "        return output;\n" +
+                        "    }</pre>"+
+                        "\n" +
+                        "<h4><strong>Parámetros para construir el Upload :</strong></h4>"+
+                        "<ul>" +
+                        "<li>String captionUpload.Receiver uploadReceiver</li>"+
+                        "<li>Upload.Receiver uploadReceiver</li>"+
+                        "</ul>",
+                ContentMode.HTML);
 
-        addComponent(new Label("Ruta definida para subir archivos: C:\\Users\\lrodriguez\\Desktop\\"));
+        VerticalLayout verticalLayout = new VerticalLayout();
+        verticalLayout.addComponent(label);
+        verticalLayout.setMargin(true);
 
+        Panel panel = new Panel();
+        panel.setContent(verticalLayout);
+
+        mainLayout.addComponents(new VerticalLayout(), panel);
+
+        addComponent(mainLayout);
     }
 
     @Override
