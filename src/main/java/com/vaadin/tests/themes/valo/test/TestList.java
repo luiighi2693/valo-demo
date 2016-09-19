@@ -1,6 +1,7 @@
 package com.vaadin.tests.themes.valo.test;
 
 import com.vaadin.ui.Grid;
+import com.vaadin.ui.Label;
 import ve.com.pt.base.new_views.ListUI;
 
 /**
@@ -11,6 +12,8 @@ public class TestList extends ListUI {
     public TestList() {
         super();
         setTitle("Listado");
+        gridContainer.headerGrid.addComponent(new Label("hola"));
+        gridContainer.setVisibleHeader(false);
     }
 
     @Override
@@ -18,19 +21,18 @@ public class TestList extends ListUI {
         super.buildHeader(true);
     }
 
-    @Override
     public void buildHeaderGrid(boolean showHeaderGrid) {
-        super.buildHeaderGrid(false);
+        gridContainer.buildHeaderGrid(showHeaderGrid);
     }
 
     @Override
     public void buildGrid() {
         super.buildGrid();
-        grid.setSizeFull();
-        grid.addColumn("Name", String.class);
-        grid.addColumn("Description", String.class);
-        grid.addColumn("Version", String.class);
-        grid.setSelectionMode(Grid.SelectionMode.MULTI);
+        gridContainer.getGrid().setSizeFull();
+        gridContainer.getGrid().addColumn("Name", String.class);
+        gridContainer.getGrid().addColumn("Description", String.class);
+        gridContainer.getGrid().addColumn("Version", String.class);
+        gridContainer.getGrid().setSelectionMode(Grid.SelectionMode.MULTI);
     }
 
     @Override
