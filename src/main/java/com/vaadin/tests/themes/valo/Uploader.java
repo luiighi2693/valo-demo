@@ -15,7 +15,7 @@ public class Uploader extends VerticalLayout implements View, Upload.Receiver {
     public Uploader(){
 
         Label h1 = new Label("Upload Files");
-        h1.addStyleName(ValoTheme.LABEL_H1);
+        h1.addStyleName(ValoTheme.LABEL_H3);
 
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setMargin(true);

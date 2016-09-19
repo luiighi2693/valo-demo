@@ -29,7 +29,7 @@ public class AutocompleteField extends VerticalLayout implements View {
 
     public AutocompleteField() {
         Label h1 = new Label("AutoCompleteTextField");
-        h1.addStyleName(ValoTheme.LABEL_H1);
+        h1.addStyleName(ValoTheme.LABEL_H3);
 
         Collection<String> theJavas = Arrays.asList("j", "JavaScript", "Join Java", "JavaFX Script");
 

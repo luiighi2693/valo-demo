@@ -112,13 +112,15 @@ public class ValoThemeUI extends UI {
         navigator.addView("calendar", ToolBarComponent.class);
         navigator.addView("grouptext", GroupTextFields.class);
         navigator.addView("popbuttons", PopUpButtons.class);
+        navigator.addView("combos", ComboBoxes.class);
+        navigator.addView("customgrid", CustomGrid.class);
 
         final String f = Page.getCurrent().getUriFragment();
         if (f == null || f.equals("")) {
             navigator.navigateTo("common");
         }
 
-        navigator.setErrorView(CommonParts.class);
+        navigator.setErrorView(TestView.class);
 
         navigator.addViewChangeListener(new ViewChangeListener() {
 
@@ -173,6 +175,8 @@ public class ValoThemeUI extends UI {
         menuItems.put("popup", "Pop Up Windows");
         menuItems.put("grouptext", "Group TextFields");
         menuItems.put("popbuttons", "PopUp Buttons");
+        menuItems.put("combos", "ComboBox");
+        menuItems.put("customgrid", "Custom Grid");
 
         final HorizontalLayout top = new HorizontalLayout();
         top.setWidth("100%");

@@ -5,7 +5,7 @@ import com.vaadin.ui.Label;
 import ve.com.pt.base.new_views.ListUI;
 
 /**
- * Pantalla listado de ejemplo
+ * Pantalla listado de ejemplo.
  */
 public class TestList extends ListUI {
 
@@ -19,10 +19,6 @@ public class TestList extends ListUI {
     @Override
     public void buildHeader(boolean showHeader) {
         super.buildHeader(true);
-    }
-
-    public void buildHeaderGrid(boolean showHeaderGrid) {
-        gridContainer.buildHeaderGrid(showHeaderGrid);
     }
 
     @Override

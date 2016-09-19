@@ -17,18 +17,8 @@ package com.vaadin.tests.themes.valo;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.ThemeResource;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import org.vaadin.addons.comboboxmultiselect.ComboBoxMultiselect;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ComboBoxes extends VerticalLayout implements View {
     public ComboBoxes() {
@@ -45,14 +35,6 @@ public class ComboBoxes extends VerticalLayout implements View {
 
         ComboBox combo = new ComboBox("Normal");
         combo.setInputPrompt("You can type here");
-        combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
-        combo.setNullSelectionAllowed(false);
-        combo.select(combo.getItemIds().iterator().next());
-        combo.setItemCaptionPropertyId(ValoThemeUI.CAPTION_PROPERTY);
-        combo.setItemIconPropertyId(ValoThemeUI.ICON_PROPERTY);
-        combo.setItemIcon(combo.getItemIds().iterator().next(),
-                new ThemeResource("../runo/icons/16/document.png"));
-        row.addComponent(combo);
 
         CssLayout group = new CssLayout();
         group.setCaption("Grouped with a Button");
@@ -60,7 +42,7 @@ public class ComboBoxes extends VerticalLayout implements View {
         row.addComponent(group);
 
         combo = new ComboBox();
-        combo.setInputPrompt("You can type here");
+        combo.setInputPrompt("Type here");
         combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
         combo.setNullSelectionAllowed(false);
         combo.select(combo.getItemIds().iterator().next());
@@ -71,34 +53,6 @@ public class ComboBoxes extends VerticalLayout implements View {
         Button today = new Button("Do It");
         group.addComponent(today);
 
-        combo = new ComboBox("Small");
-        combo.setInputPrompt("You can type here");
-        combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
-        combo.setItemCaptionPropertyId(ValoThemeUI.CAPTION_PROPERTY);
-        combo.setItemIconPropertyId(ValoThemeUI.ICON_PROPERTY);
-        combo.addStyleName(ValoTheme.COMBOBOX_SMALL);
-        row.addComponent(combo);
-
-        combo = new ComboBox("Large");
-        combo.setInputPrompt("You can type here");
-        combo.setContainerDataSource(ValoThemeUI.generateContainer(200, false));
-        combo.setItemCaptionPropertyId(ValoThemeUI.CAPTION_PROPERTY);
-        combo.setItemIconPropertyId(ValoThemeUI.ICON_PROPERTY);
-        combo.addStyleName(ValoTheme.COMBOBOX_LARGE);
-        row.addComponent(combo);
-
-/*        List<Bean> list = new ArrayList<Bean>();
-        Bean vaadin = new Bean(2L, "Vaadin”);
-                list.add(new Bean(1L, "Java"));
-        list.add(vaadin);
-        list.add(new Bean(4L, "Addon"));*/
-
-// Initialize the ComboBoxMultiselect
-        final ComboBoxMultiselect comboBoxMultiselect = new ComboBoxMultiselect();
-        comboBoxMultiselect.setInputPrompt("Type here");
-        comboBoxMultiselect.setCaption("ComboBoxMultiselect");
-//        comboBoxMultiselect.addItems(list);
-//        comboBoxMultiselect.select(vaadin);
 
     }
 

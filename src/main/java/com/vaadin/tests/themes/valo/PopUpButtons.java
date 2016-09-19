@@ -15,7 +15,7 @@ public class PopUpButtons extends VerticalLayout implements View {
     public PopUpButtons(){
         setMargin(true);
         Label h2 = new Label("PopUp Buttons");
-        h2.addStyleName(ValoTheme.LABEL_H2);
+        h2.addStyleName(ValoTheme.LABEL_H3);
         addComponent(h2);
 
         HorizontalLayout wrap = new HorizontalLayout();

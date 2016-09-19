@@ -16,7 +16,7 @@ public class ToolBarComponent extends VerticalLayout implements View {
 
     public ToolBarComponent() {
         Label h1 = new Label("Tool Bar");
-        h1.addStyleName(ValoTheme.LABEL_H1);
+        h1.addStyleName(ValoTheme.LABEL_H3);
 
         mainLayout = new VerticalLayout();
         setMargin(true);

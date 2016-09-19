@@ -18,7 +18,7 @@ public class GroupTextFields extends VerticalLayout implements View {
 
     public GroupTextFields() {
         Label h1 = new Label("Group TextFields");
-        h1.addStyleName(ValoTheme.LABEL_H1);
+        h1.addStyleName(ValoTheme.LABEL_H3);
 
         mainLayout = new VerticalLayout();
         mainLayout.setMargin(true);
@@ -33,7 +33,7 @@ public class GroupTextFields extends VerticalLayout implements View {
         field.setInputPrompt("parámetro");
         field.addStyleName(ValoTheme.TEXTFIELD_INLINE_ICON);
         field.setIcon(FontAwesome.SEARCH);
-        field.setWidth("80%");
+        field.setWidth("78%");
 
         group.addComponent(field);
         Button button = new Button(FontAwesome.FILTER);

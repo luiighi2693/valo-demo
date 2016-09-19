@@ -5,25 +5,24 @@ import eu.maxschuster.vaadin.autocompletetextfield.AutocompleteSuggestionProvide
 import eu.maxschuster.vaadin.autocompletetextfield.AutocompleteTextField;
 import eu.maxschuster.vaadin.autocompletetextfield.provider.CollectionSuggestionProvider;
 import eu.maxschuster.vaadin.autocompletetextfield.provider.MatchMode;
-import ve.com.pt.base.views.BaseMaintenance;
+import ve.com.pt.base.new_views.MaintenanceUI;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Locale;
 
 /**
- * Test para pantalla de mantenimiento
+ * Implementación de ejemplo para pantalla de mantenimiento.
  * Created by ypetrilli on 14/09/2016.
  */
-public class TestMaintenance extends BaseMaintenance {
+public class TestMaintenance extends MaintenanceUI {
 
     private TextField code;
     private AutocompleteTextField field;
     AutocompleteSuggestionProvider suggestionProvider;
 
     public TestMaintenance() {
-        setMargin(true);
-    }
+   }
 
     @Override
     public void buildGrid() {

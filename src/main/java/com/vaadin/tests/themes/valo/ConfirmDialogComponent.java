@@ -1,24 +1,18 @@
 package com.vaadin.tests.themes.valo;
 
-import com.sun.jmx.mbeanserver.NamedObject;
-import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import org.vaadin.addons.comboboxmultiselect.ComboBoxMultiselect;
 import org.vaadin.dialogs.ConfirmDialog;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConfirmDialogComponent extends VerticalLayout implements View {
 
     public ConfirmDialogComponent(){
 
         Label h1 = new Label("Pop Up Windows");
-        h1.addStyleName(ValoTheme.LABEL_H1);
+        h1.addStyleName(ValoTheme.LABEL_H3);
 
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setMargin(true);
