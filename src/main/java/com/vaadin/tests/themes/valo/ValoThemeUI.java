@@ -114,6 +114,8 @@ public class ValoThemeUI extends UI {
         navigator.addView("popbuttons", PopUpButtons.class);
         navigator.addView("combos", ComboBoxes.class);
         navigator.addView("customgrid", CustomGrid.class);
+        navigator.addView("jspcomponent", JspComponent.class);
+        navigator.addView("tagfield", TagField.class);
 
         final String f = Page.getCurrent().getUriFragment();
         if (f == null || f.equals("")) {
@@ -177,6 +179,8 @@ public class ValoThemeUI extends UI {
         menuItems.put("popbuttons", "PopUp Buttons");
         menuItems.put("combos", "ComboBox");
         menuItems.put("customgrid", "Custom Grid");
+        menuItems.put("jspcomponent", "JSP Component");
+        menuItems.put("tagfield", "Tag Field");
 
         final HorizontalLayout top = new HorizontalLayout();
         top.setWidth("100%");
