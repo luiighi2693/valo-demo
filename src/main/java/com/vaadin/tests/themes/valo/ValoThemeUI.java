@@ -116,6 +116,7 @@ public class ValoThemeUI extends UI {
         navigator.addView("customgrid", CustomGrid.class);
         navigator.addView("jspcomponent", JspComponent.class);
         navigator.addView("tagfield", TagField.class);
+        navigator.addView("addressField", AddressField.class);
 
         final String f = Page.getCurrent().getUriFragment();
         if (f == null || f.equals("")) {
@@ -181,6 +182,7 @@ public class ValoThemeUI extends UI {
         menuItems.put("customgrid", "Custom Grid");
         menuItems.put("jspcomponent", "JSP Component");
         menuItems.put("tagfield", "Tag Field");
+        menuItems.put("addressField", "Address Field");
 
         final HorizontalLayout top = new HorizontalLayout();
         top.setWidth("100%");

@@ -159,13 +159,18 @@
 			<artifactId>vaadin-onoffswitch</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-
-		<!--  token field -->
 		<dependency>
 			<groupId>org.vaadin.addons</groupId>
 			<artifactId>tokenfield</artifactId>
 			<version>7.0.1</version>
 		</dependency>
+
+		<!--  token field -->
+		<!--<dependency>-->
+			<!--<groupId>org.vaadin.addons</groupId>-->
+			<!--<artifactId>tokenfield</artifactId>-->
+			<!--<version>7.0.1</version>-->
+		<!--</dependency>-->
 
 	</dependencies>
 
